@@ -1,0 +1,535 @@
+@font-face {
+    font-family: TrajanPro;
+    src: url("TrajanPro-Regular.otf");
+}
+
+* {
+    text-align: center;
+}
+
+body {  
+    background-color: black;
+    height: 100%;
+    cursor: url('/images/icon.png'), auto;
+    margin: 0;
+}
+
+a {
+    text-decoration: none;
+}
+
+a:hover {
+    cursor: url(/images/icon.png), auto;
+}
+
+button:hover {
+    cursor: url(/images/icon.png), auto;
+}
+
+#scrollButton {
+    display: none;
+    flex: 1 1 100%;
+    position: fixed;
+    z-index: 99;
+    bottom: 0.5%;
+    right: 0.5%;
+    padding: 0.5%;
+    border: 1px groove aquamarine;
+    border-radius: 10px;
+    background-color: rgb(20, 20, 20);
+    filter: drop-shadow(-3px -3px 3px aquamarine)
+}
+
+#scrollButton:hover {
+    background-color: rgb(127, 255, 212, 0.7);
+}
+
+.empty {
+    grid-column: 1 / -1;
+    padding-top: 5%;
+}
+
+.page {
+    display: none;
+}
+
+#pageOne {
+    display: block;
+}
+
+.container {
+    height: 100%;
+    margin: 0 5%;
+    display: grid;
+    grid-template-columns: repeat(12, 1fr);
+    grid-template-rows: auto;
+    grid-gap: 0.5%;
+    padding-top: 10%;
+}
+
+.font {
+    font-family: 'Times New Roman', Times, serif;
+    color: azure;
+    text-shadow: 1px 1px 3px azure;
+    font-size: 25px;
+    font-weight: 1;
+    line-height: 150%;
+}
+
+.navbar {
+    background-color: rgb(20, 20, 20);
+    border-top: 3px groove azure;
+    border-bottom: 3px groove azure;
+    position: fixed;
+    z-index: 99;
+    width: 100%;
+    > ul {
+        display: flex;
+        justify-content: space-evenly;
+        flex: 1 1 25%;
+        padding: 0;
+    }
+
+    > ul > li {
+        font-family: TrajanPro;
+        color: white;
+        font-size: 20px;
+        font-weight: 10;
+        list-style: none;
+        line-height: 150%;
+    }
+
+    > ul > li > a:link {
+        color: azure;
+    }
+    > ul > li > a:visited {
+        color: grey;
+    }
+    > ul > li > a:hover {
+        color: aquamarine;
+    }
+}
+
+.active {
+    color: aquamarine !important;
+}
+
+@media all and (max-width: 600px) { 
+    .navbar {        
+        > ul {
+            flex-wrap: wrap;
+        }
+        > ul > li {
+            flex: 1 1 50%;
+        }
+    }
+    .container {
+        padding-top: 25%;
+    }
+}
+
+.mainBackground {
+    grid-column: 2 / span 10;
+    grid-row: 1;
+    margin: 2% auto;  
+    > video {
+        filter: drop-shadow(3px 3px 3px aquamarine) contrast(120%);
+        max-width: 100%;
+        border-radius: 25px;
+    }
+}
+
+.mainTitle {
+    grid-column: 4 / span 6;
+    grid-row: 1;
+    align-content: center;
+    > img {
+        filter: drop-shadow(1px 1px 1px azure);
+        max-width: 100%;
+    }
+}
+
+.mainParagraph {
+    grid-column: 1 / -1;
+    grid-row: 2;  
+    margin: 0 auto;
+    width: 95%;
+    background-image: url(/images/main-paragraph.png);
+    background-size: cover;
+    background-position: center;
+    border-radius: 10px;
+    > p {
+        font-family: 'Times New Roman', Times, serif;
+        font-size: 25px;
+    }
+}
+
+.featuresTitle {
+    grid-column: 1 / -1;
+    grid-row: 3;
+    background-color: rgb(20, 20, 20);
+    border: 3px groove azure;
+    border-radius: 10px;
+    > p {
+        font-family: TrajanPro;
+        font-size: 40px;
+        margin: 0;
+    }
+}
+
+.features {
+    grid-column: 1 / -1;
+    grid-row: 4;
+    background-image: url(/images/main-background.png);
+    background-size: cover;
+    background-position: center;
+    border: 3px groove azure;
+    border-radius: 10px;
+    max-width: 100%;
+    > div {
+        display: flex;
+        flex-wrap: wrap;
+        flex: 1 1 100%;
+    }
+    > div > div {
+        flex: 1 1 50%;
+        align-self: center;
+    }
+    h3 {
+        font-family: TrajanPro;
+    }
+    img {
+        filter: drop-shadow(1px 1px 2px aquamarine);
+        max-width: 100%;
+        border-radius: 10px;
+        transition: transform .5s;
+    }
+    img:active {
+        transform: scale(1.5);
+    }
+    h3, p, img {
+        margin: 2% 4%;
+    }
+}
+
+@media all and (max-width: 1500px) {
+    .features {
+        > div > div {  
+            flex: 1 1 100%;
+        }
+        img {
+            max-width: 90%;
+        }
+        > div:nth-child(2) > div:first-child {
+            order: 2;
+        }
+    }
+}
+
+.trailerTitle {
+    grid-column: 1 / -1;
+    grid-row: 5;
+    background-color: rgb(20, 20, 20);
+    border: 3px groove azure;
+    border-radius: 10px;
+    > p {
+        font-family: TrajanPro;
+        font-size: 40px;
+        margin: 0;
+    }
+}
+
+.trailer {
+    grid-column: 1 / -1;
+    grid-row: 6;
+    height: 200%;
+    
+    > iframe {
+        border-radius: 10px;
+        filter: drop-shadow(3px 3px 3px aquamarine);
+        margin: 2% auto;        
+        width: 90%;
+        height: 150%;
+    }
+}
+
+
+
+
+/* second page */
+
+
+.charactersTitle {
+    grid-column: 1 / -1;
+    grid-row: 1;
+    background-color: rgb(20, 20, 20);
+    border: 3px groove azure;
+    border-radius: 10px;
+    > p {
+        font-family: TrajanPro;
+        font-size: 40px;
+        margin: 0;
+    }
+}
+
+.charactersParagraph {
+    grid-column: 1 / -1;
+    grid-row: 2; 
+    margin: 0 auto;
+    width: 95%;
+    background-image: url(/images/main-paragraph.png);
+    background-size: cover;
+    background-position: center;
+    border-radius: 10px;
+    > p {
+        font-family: 'Times New Roman', Times, serif;
+        font-size: 25px;
+    }
+}
+
+
+.characters {
+    grid-column: 1 / -1;
+    grid-row: 3;  
+    margin: 2% auto;
+    border-radius: 10px; 
+    width: 100%;
+    
+    > p {
+        font-family: 'Times New Roman', Times, serif;
+        font-size: 20px;
+        line-height: 180%;
+    }
+
+    > div {
+        border: 3px groove azure;
+        border-radius: 10px;
+        margin-bottom: 2%;
+    }
+}
+
+@media all and (max-width: 1400px) {
+    
+    .characters {       
+        > div {
+            flex-direction: column;
+            flex: 1 1 50%;
+        }
+        > div:nth-of-type(even) {
+            > div:first-child {
+                order: 2;
+            }
+        }
+        > div > div > img {
+            width: 60%;
+        }
+    }
+    .chr  {
+        > div > img:active {
+            transform: scale(2);
+        }
+    }
+}
+
+.chr {
+    display: flex;
+    flex-wrap: wrap;
+    background-size: cover;
+    background-position: center;
+    > div {
+        flex: 1 1 50%;
+        align-self: center;       
+    }
+    h1 {
+        font-family: TrajanPro;
+    }
+    img {
+        max-width: 100%;
+        transition: transform .5s;
+    }
+    > div > p, img {
+        margin: 2% 4%;
+    }
+}
+
+.chr:hover {
+    img {
+        transform: scale(1.2);
+    }
+}
+
+.ghost {
+    background-image: url(/images/characters/ghost_wallpaper.png);
+    text-shadow: 1px 1px 3px aquamarine;
+    img {
+        filter: drop-shadow(1px 1px 2px aquamarine);
+    }
+}
+
+.hornet {
+    background-image: url(/images/characters/hornet_wallpaper.png);
+    text-shadow: 1px 1px 3px tomato;
+    img {
+        filter: drop-shadow(1px 1px 2px tomato);
+    }
+}
+
+.hollowknight {
+    background-image: url(/images/characters/hollowknight_wallpaper.png);
+    text-shadow: 1px 1px 3px azure;
+    img {
+        filter: drop-shadow(1px 1px 2px azure);
+    }
+}
+
+.radiance {
+    background-image: url(/images/characters/radiance_wallpaper.png);
+    text-shadow: 1px 1px 3px gold;
+    img {
+        filter: drop-shadow(1px 1px 2px gold);
+    }
+}
+
+.nkg {
+    background-image: url(/images/characters/nkg_wallpaper.png);
+    text-shadow: 1px 1px 3px firebrick;
+    img {
+        filter: drop-shadow(1px 1px 2px firebrick);
+    }
+}
+
+.mantislords {
+    background-image: url(/images/characters/mantislords_wallpaper.png);
+    text-shadow: 1px 1px 3px blue;
+    img {
+        filter: drop-shadow(1px 1px 2px blue);
+    }
+}
+
+.paleking {
+    background-image: url(/images/characters/paleking_wallpaper.png);
+    text-shadow: 1px 1px 3px white;
+    img {
+        filter: drop-shadow(1px 1px 2px white);
+    }
+}
+
+.whitelady {
+    background-image: url(/images/characters/whitelady_wallpaper.png);
+    text-shadow: 1px 1px 3px white;
+    img {
+        filter: drop-shadow(1px 1px 2px white);
+    }
+}
+
+.hunter {
+    background-image: url(/images/characters/hunter_wallpaper.png);
+    text-shadow: 1px 1px 3px green;
+    img {
+        filter: drop-shadow(1px 1px 2px green);
+    }
+}
+
+.cornifer {
+    background-image: url(/images/characters/cornifer_wallpaper.png);
+    text-shadow: 1px 1px 3px brown;
+    img {
+        filter: drop-shadow(1px 1px 2px brown);
+    }
+}
+
+.laststag {
+    background-image: url(/images/characters/laststag_wallpaper.png);
+    text-shadow: 1px 1px 3px khaki;
+    img {
+        filter: drop-shadow(1px 1px 2px khaki);
+    }
+}
+
+
+
+
+
+/* Locations */
+
+
+
+
+.map {
+    grid-column: 1 / -1;
+    margin: 0 auto;
+    width: 90%;
+    img {
+        filter: drop-shadow(3px 3px 3px aquamarine) contrast(120%);
+        width: 100%;
+        border-radius: 25px;
+        transition: transform .5s;
+    }
+    img:active {
+        transform: scale(1.2);
+    }
+}
+
+.mapTitle {
+    grid-column: 1 / -1;
+    background-color: rgb(20, 20, 20);
+    border: 3px groove azure;
+    border-radius: 10px;
+    > p {
+        font-family: TrajanPro;
+        font-size: 40px;
+        margin: 0;
+    }
+}
+
+.mapParagraph {
+    grid-column: 1 / -1;
+    margin: 0 auto;
+    width: 95%;
+    background-image: url(/images/main-paragraph.png);
+    background-size: cover;
+    background-position: center;
+    border-radius: 10px;
+    > p {
+        font-family: 'Times New Roman', Times, serif;
+        font-size: 25px;
+    }
+}
+
+.canvas {
+    grid-column: 1 / -1;
+	width: 100%;
+    display: flex;
+    flex-wrap: wrap;
+    border: 3px groove azure;
+    border-radius: 10px;
+    img {
+        max-width: 50%;
+        border-radius: 10px;
+        transition: transform .5s;    
+    }
+    img:nth-child(1):active {
+        transform: scale(2);
+        transform-origin: left top;
+    }
+    img:nth-child(2):active {
+        transform: scale(2);
+        transform-origin: right top;
+    }
+    img:nth-child(3):active {
+        transform: scale(2);
+        transform-origin: left bottom;
+    }
+    img:nth-child(4):active {
+        transform: scale(2);
+        transform-origin: right bottom;
+    }
+}
+
+
+
+
+/* Artwork */
+
+
+
